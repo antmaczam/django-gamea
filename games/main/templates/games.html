@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block titulo %} Usuarios registrados {% endblock %}
+
+{% block encabezado %} <h1>Juegos</h1> {% endblock %}
+
+{% block contenido %}
+<ul>
+	{% for dato in games %}
+	<li>{{dato.title|capfirst}} - <em>{{dato.price}}</em></li>
+	{% empty %}
+	<li>Aún no hay juegos registrados</li>
+	{% endfor %}
+</ul>
+{% endblock %}
