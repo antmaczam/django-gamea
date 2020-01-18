@@ -1,5 +1,5 @@
 MODELO:
-- Juego
+- Juego: título, precio, categoría, número comentarios, valoración.
 
 FUNCIONALIDAD:
 - Ordenar por precio
