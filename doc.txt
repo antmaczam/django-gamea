@@ -1,0 +1,13 @@
+MODELO:
+- Juego
+
+FUNCIONALIDAD:
+- Ordenar por precio
+- Ordenar por comentarios
+- Ordenar por  valoraciones
+- Top juegos con mejores valoraciones
+- Top juegos con más comentarios
+- Top juegos más baratos
+- Agrupar por categoría
+- Comparar precios con Game o Allkeyshop
+- Extraer análisis de cada juego (Metacritic)
