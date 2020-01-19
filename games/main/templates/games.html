@@ -2,14 +2,25 @@
 
 {% block titulo %} Usuarios registrados {% endblock %}
 
-{% block encabezado %} <h1>Juegos</h1> {% endblock %}
+{% block encabezado %} <h1>Juegos {{text}}</h1> {% endblock %}
 
 {% block contenido %}
 <ul>
 	{% for dato in games %}
-	<li>{{dato.title|capfirst}} - <em>{{dato.price}}</em></li>
+	<li>{{dato.title|capfirst}} - <em>{{dato.price}}€</em> </br>
+	Categorias: {{dato.category|capfirst}} </br>
+	Valoración: <em>{{dato.rate}}</li>
 	{% empty %}
 	<li>Aún no hay juegos registrados</li>
 	{% endfor %}
 </ul>
+
+<div>
+	{% if text == 'ordenados por precio ascendente' %}
+		<input type="button" value="Ordenar descendente" onClick="window.location.href='/priceDesc'">
+	{% endif %}
+	{% if text == 'ordenados por precio descendente' %}
+		<input type="button" value="Ordenar ascendente" onClick="window.location.href='/priceAsc'">
+	{% endif %}
+</div>
 {% endblock %}
