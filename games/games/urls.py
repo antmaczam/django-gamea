@@ -23,4 +23,12 @@ urlpatterns = [
     path('games/',views.games),
     path('priceAsc/',views.priceAsc),
     path('priceDesc/',views.priceDesc),
+    path('commentsAsc/',views.commentsAsc),
+    path('commentsDesc/',views.commentsDesc),
+    path('rateAsc/',views.rateAsc),
+    path('rateDesc/',views.rateDesc),
+    path('topComments/',views.topComments),
+    path('topRate/',views.topRate),
+    path('topPrice/',views.topPrice),
+    
 ]

@@ -22,5 +22,20 @@
 	{% if text == 'ordenados por precio descendente' %}
 		<input type="button" value="Ordenar ascendente" onClick="window.location.href='/priceAsc'">
 	{% endif %}
+	{% if text == 'ordenados por numero de comentarios descendente' %}
+		<input type="button" value="Ordenar ascendente" onClick="window.location.href='/commentsAsc'">
+	{% endif %}
+	{% if text == 'ordenados por  numero de comentarios ascendente' %}
+		<input type="button" value="Ordenar descendente" onClick="window.location.href='/commentsDesc'">
+	{% endif %}
+	{% if text == 'ordenados por  valoracion descendente' %}
+		<input type="button" value="Ordenar ascendente" onClick="window.location.href='/rateAsc'">
+	{% endif %}
+	{% if text == 'ordenados por valoracion ascendente' %}
+		<input type="button" value="Ordenar descendente" onClick="window.location.href='/rateDesc'">
+	{% endif %}
+	
+	
+	
 </div>
 {% endblock %}
