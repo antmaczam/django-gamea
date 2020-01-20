@@ -2,7 +2,7 @@ MODELO:
 - Juego: título, precio, categoría, número comentarios, valoración.
 
 FUNCIONALIDAD:
-- Ordenar por precio
+- Ordenar por precio - done
 - Ordenar por comentarios
 - Ordenar por  valoraciones
 - Top juegos con mejores valoraciones
