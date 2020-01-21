@@ -2,6 +2,7 @@ from django.shortcuts import render
 from main.models import Game
 from bs4 import BeautifulSoup
 from urllib.request import Request, urlopen
+from main.populate import extraerDatosURL
 
 # Create your views here.
 
@@ -53,12 +54,14 @@ def topRate(request):
     games = Game.objects.all().order_by('rate').reverse()[:5]
     text = 'Top 5 numero de valoraciones'
     return render(request,'games.html',{'games':games,'text':text})
+
 def topPrice(request):
     games = Game.objects.all().order_by('price')[:5]
     text = 'Top 5 juegos  baratos'
     return render(request,'games.html',{'games':games,'text':text})
 
-
+def populate(request):
+    extraerDatosURL()
+    games = Game.objects.all()
+    return render(request,'index.html',{'games':games})
     
-
-

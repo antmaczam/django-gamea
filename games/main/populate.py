@@ -38,6 +38,8 @@ def extraerDatosURL():
         name = game.find('h2').get_text()
         price = game.find('div',class_=["search-results-row-price"]).get_text()
         rate = game.find('div',class_=["metacritic d-none d-xl-block"]).get_text()
+        if(rate == ' —'):
+            rate = 0.0
         plataform = game.find('div',class_=["search-results-row-game-infos"]).get_text().split("-")[1]
         link = game.find('a',class_=["search-results-row-link"]).get('href')
         pc = urlopen(link).read()
@@ -52,7 +54,7 @@ def extraerDatosURL():
         else:
            category = category[0].get_text()
         Game.objects.create(title=name,price=float(price.split('€')[0]),category=category,comments=int(comments),rate=float(rate),plataform=plataform,gamePrice=0)
-
+   
     #PSX Games -------------------------------------------------------------------------------------------------------------------
 
     psx = urlopen('https://www.allkeyshop.com/blog/catalogue/category-playstation-all/').read()
@@ -64,12 +66,15 @@ def extraerDatosURL():
         name = game.find('h2').get_text()
         price = game.find('div',class_=["search-results-row-price"]).get_text()
         rate = game.find('div',class_=["metacritic d-none d-xl-block"]).get_text()
+        if(rate == ' —'):
+            rate = 0.0
         plataform = game.find('div',class_=["search-results-row-game-infos"]).get_text().split("-")[1]
         link = game.find('a',class_=["search-results-row-link"]).get('href')
         pc = urlopen(link).read()
         soup = BeautifulSoup(pc, 'lxml')
         comment = soup.find_all('h3', class_=["content-box-title"])
         comments = comment[0].get_text().split()[0]
+        category = soup.find_all('a', rel=['noopener noreferrer'])
         if(comments == 'Be'):
            comments = 0
         if(len(category) == 0):
@@ -79,7 +84,7 @@ def extraerDatosURL():
         Game.objects.create(title=name,price=float(price.split('€')[0]),category=category,comments=int(comments),rate=float(rate),plataform=plataform,gamePrice=0)
     
     #Nintendo Games-----------------------------------------------------------------------------------------------------------------
-
+    
     nintendo = urlopen('https://www.allkeyshop.com/blog/catalogue/category-nintendo-all/').read()
     soup = BeautifulSoup(nintendo, 'lxml')
 
@@ -90,6 +95,8 @@ def extraerDatosURL():
         name = game.find('h2').get_text()
         price = game.find('div',class_=["search-results-row-price"]).get_text()
         rate = game.find('div',class_=["metacritic d-none d-xl-block"]).get_text()
+        if(rate == ' —'):
+            rate = 0.0
         plataform = game.find('div',class_=["search-results-row-game-infos"]).get_text().split("-")[1]
         pc = urlopen(link).read()
         soup = BeautifulSoup(pc, 'lxml')

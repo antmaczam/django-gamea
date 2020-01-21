@@ -20,6 +20,7 @@ from main import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.inicio),
+    path('populate/',views.populate),
     path('games/',views.games),
     path('priceAsc/',views.priceAsc),
     path('priceDesc/',views.priceDesc),
