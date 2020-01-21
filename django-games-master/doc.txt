@@ -1,0 +1,13 @@
+MODELO:
+- Juego: título, precio, categoría, número comentarios, valoración.
+
+FUNCIONALIDAD:
+- Ordenar por precio - done
+- Ordenar por comentarios
+- Ordenar por  valoraciones
+- Top juegos con mejores valoraciones
+- Top juegos con más comentarios
+- Top juegos más baratos
+- Agrupar por categoría
+- Comparar precios con Game o Allkeyshop
+- Extraer análisis de cada juego (Metacritic)
