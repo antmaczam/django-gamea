@@ -65,3 +65,22 @@ def populate(request):
     games = Game.objects.all()
     return render(request,'index.html',{'games':games})
     
+def pcGames(request):
+    games = Game.objects.all().filter(plataform='PC')
+    text = 'PC'
+    return render(request,'games.html',{'games':games,'text':text})
+
+def xboxGames(request):
+    games = Game.objects.all().filter(plataform__contains='xbox')
+    text = 'PC'
+    return render(request,'games.html',{'games':games,'text':text})
+
+def psxGames(request):
+    games = Game.objects.all().filter(plataform__contains='ps')
+    text = 'PC'
+    return render(request,'games.html',{'games':games,'text':text})
+
+def nintendoGames(request):
+    games = Game.objects.all().filter(plataform__contains='Nintendo')
+    text = 'PC'
+    return render(request,'games.html',{'games':games,'text':text})
