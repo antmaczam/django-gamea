@@ -10,8 +10,8 @@ class Game(models.Model):
     comments = models.PositiveIntegerField()
     rate = models. CharField(max_length=10, validators=[validate_comma_separated_integer_list])
     plataform = models.CharField(max_length=10)
-    link = models.CharField(validators=[URLValidator])
-    picture = models.CharField(validators=[URLValidator])
+    link = models.CharField(max_length=500, validators=[URLValidator])
+    picture = models.CharField(max_length=500, validators=[URLValidator])
     gamePrice = models.FloatField()
     
     def __str__(self):
