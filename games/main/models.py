@@ -12,6 +12,7 @@ class Game(models.Model):
     plataform = models.CharField(max_length=10)
     link = models.CharField(validators=[URLValidator])
     picture = models.CharField(validators=[URLValidator])
+    gamePrice = models.FloatField()
     
     def __str__(self):
         return self.title
