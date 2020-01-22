@@ -27,10 +27,20 @@ def extraerDatosURL():
         comments = comment[0].get_text().split()[0]
         if(comments == 'Be'):
             comments = 0
-        Game.objects.create(title=name,price=float(price.split('€')[0]),category=category,comments=int(comments),rate=float(rate),plataform='PC',link=link,picture=picture,gamePrice=0)
- 
+        
+        nq = name.replace(" ", "+")
+        enlace = 'https://www.amazon.es/s?k=' + nq +"&i=videogames&__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&ref=nb_sb_noss_1"
+        linkGame = Request(enlace , headers={'User-Agent': 'Mozilla/5.0'})
+        game = urlopen(linkGame).read() 
+        soup = BeautifulSoup(game, 'lxml')
+        
+        priceG = soup.find_all('span', class_=["a-price-whole"])
+        priceG = priceG[0].get_text()
+        priceG = priceG.replace(",", ".")
+        Game.objects.create(title=name,price=float(price.split('€')[0]),category=category,comments=int(comments),rate=float(rate),plataform='PC',link=link,picture=picture,gamePrice=float(priceG))
+    
     #XBox Games --------------------------------------------------------------------------------------------------------------
-
+    
     xbox = urlopen('https://www.allkeyshop.com/blog/catalogue/category-xbox-all/').read()
     soup = BeautifulSoup(xbox, 'lxml')
 
