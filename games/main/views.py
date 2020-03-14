@@ -216,3 +216,6 @@ def nintendoGames(request):
 def topGames():
     games = Game.objects.all().order_by('price')[:5]
     return games
+
+def prueba():
+    return 'Esto es una prueba para el git tag'
